@@ -310,21 +310,19 @@ if(Train[4] > 0 && Train[4] < 15){
 }
  */
  //S 
-  Serial.print("TrainOutFlag_2_4_S==");
-  Serial.print(TrainOutFlag2S);
-  Serial.println(TrainOutFlag4S);
-
-  Serial.print("TrainOutFlag_1_3_S==");
+  Serial.print("TrainOutFlag1_2_3_4_S==");
   Serial.print(TrainOutFlag1S);
-  Serial.println(TrainOutFlag3S);
+  Serial.print(TrainOutFlag2S);
+  Serial.print(TrainOutFlag3S);
+  Serial.println(TrainOutFlag4S);
   //M
-  Serial.print("TrainOutFlag_2_4_M==");
+  Serial.print("TrainOutFlag1_2_3_4_M==");
+  Serial.print(TrainOutFlag1M);
   Serial.print(TrainOutFlag2M);
+  Serial.print(TrainOutFlag3M);
   Serial.println(TrainOutFlag4M);
 
-  Serial.print("TrainOutFlag_1_3_M==");
-  Serial.print(TrainOutFlag1M);
-  Serial.println(TrainOutFlag3M);
+  
   
   //列車位置　初期設定
   /*5
