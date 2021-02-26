@@ -519,7 +519,7 @@ e = 0;*/
 
 //列車衝突防止
 if(Train[1]>5 && Train[1]<15){
-collision();
+//collision();
 }
 // ポイント切替状態表示信号カラーLED制御
 HomeSignal();
@@ -532,8 +532,8 @@ Outside_TrainSerch();
 
 //TrainPP();
 //Train1Main();
-motor_reset();
-  
+//motor_reset();
+   //Train1Fast(); 
 }
 
 //loop 終わり 
@@ -546,12 +546,12 @@ motor_reset();
 
 
 //motor reset
-void motor_reset(){
-  digitalWrite(38,  LOW);
-  digitalWrite(39,  LOW);
-  digitalWrite(40,  LOW);
-  digitalWrite(41,  LOW);  
-}
+//void motor_reset(){
+//  digitalWrite(38,  LOW);
+ // digitalWrite(39,  LOW);
+//  digitalWrite(40,  LOW);
+//  digitalWrite(41,  LOW);  
+//}
 
 //collision
 
@@ -644,14 +644,14 @@ void Outflag1234(){
   
   if (sw == '1') {
    TrainOutFlag1S = 1; 
-  
+   Train1Slow();
    TrainInFlag1 = 0; 
-    Train1Slow();
+   
    
    
    
    //Train1Slow();
-   //Serial.print("TrainOutFlag1111111=");
+   Serial.print("TrainOutFlag1111111=");
    //Serial.println(TrainOutFlag1);
   }
   if(digitalRead(35)==0 && digitalRead(36)==0 && digitalRead(37)==1){
@@ -775,6 +775,9 @@ if(digitalRead(35)==1 && digitalRead(36)==0 && digitalRead(37)==1){
    software_reset(); 
    
 }
+  if(sw=='6'){
+   Train123StopF(); 
+  }
 }
 
 
@@ -1324,7 +1327,7 @@ void Train2Stop(){
    digitalWrite(40,  LOW);
    digitalWrite(41,  HIGH); 
 }
-void Train2StopF(){
+void Train123StopF(){
    digitalWrite(38,  LOW);//2
    digitalWrite(39,  HIGH);//Train[2] StopF
    digitalWrite(40,  LOW);
