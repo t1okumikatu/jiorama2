@@ -908,15 +908,26 @@ if(Train[2] > 0 && Train[2] < 14){
   
 // 列車位置加算ルーチン
 //[23]----------------------------------------------
-  void Train1Sub(){
+ void Train1Sub(){
     Serial.println("Train1Sub()");
    if(TrainOutFlag1S==1 && digitalRead(digitalSubPin[Train[1]])==1){
     Train[1] = Train[1] + 1;
-    TrainOutFlag1S = 0;
+    TrainOutFlag1M = 0;
+    TrainOutFlag1S = 1;
     if(Train[1]==14 ){
      Train[1]=1;
      TrainOutFlag1S = 0;
+     Train1Stop();
+     Serial.println("Train1Stop();"); 
     }
+    if(s[1]==1 ){
+     Train[1]=2;
+     TrainOutFlag1S = 1;
+     Train1Stop();
+     Serial.println("Train1Stop();"); 
+    }
+    
+    
     
     if(TrainOutFlag1S ==0  && digitalRead(digitalSubPin[Train[1]])==0){
       TrainOutFlag1S = 1;
@@ -926,15 +937,16 @@ if(Train[2] > 0 && Train[2] < 14){
     } 
     if(TrainOutFlag1S ==0  && digitalRead(digitalMainPin[Train[1]])==1){
       TrainOutFlag1S = 0;
-    } 
+    }   
+   
     if(Train[1]==4 ){
-      TrainOutFlag1S = 0;
+      TrainOutFlag1S = 1;
+      Train1Stop();
+      Serial.print("Train1Stop();");
     } 
-    }
-    
-     
     Serial.print("T1S===");
     Serial.println(Train[1]);
+  }
   }
   
   void Train1Main(){
