@@ -518,7 +518,9 @@ e_old = e;
 e = 0;*/
 
 //列車衝突防止
-//collision();
+if(Train[1]>5 && Train[1]<15){
+collision();
+}
 // ポイント切替状態表示信号カラーLED制御
 HomeSignal();
 // 列車移動引き継ぎ情報
