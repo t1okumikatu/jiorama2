@@ -863,6 +863,7 @@ void  Train1Sub_Home(){
     
     if(TrainOutFlag2S ==0  && digitalRead(digitalSubPin[Train[2]])==0){
       TrainOutFlag2S = 1;
+      Train2Stop();
     }
     if(TrainOutFlag2S ==0  && digitalRead(digitalSubPin[Train[2]])==1){
       TrainOutFlag2S = 0;
@@ -977,14 +978,16 @@ if(Train[2] > 5 && Train[2] < 15){
      Train1Stop();
      Serial.println("Train1Stop();"); 
     }
-     TrainOutFlag1S = 1;
+    // TrainOutFlag1S = 1;
    }
     
     if(TrainOutFlag1S ==0  && digitalRead(digitalSubPin[Train[1]])==0){
       TrainOutFlag1S = 1;
+      Train1Slow();
     }
     if(TrainOutFlag1S ==0  && digitalRead(digitalSubPin[Train[1]])==1){
       TrainOutFlag1S = 0;
+      Train1Stop();
     } 
     if(TrainOutFlag1S ==0  && digitalRead(digitalMainPin[Train[1]])==1){
       TrainOutFlag1S = 0;
