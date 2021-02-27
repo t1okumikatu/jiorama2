@@ -1028,7 +1028,7 @@ if(Train[2] > 5 && Train[2] < 15){
 
    
   //[22]-------------------------------------------------
-   void Train2Sub(){
+   void Train2Sub(){ //前列車にマージしない
     Serial.println("Train2Sub()");
    if(TrainOutFlag2S==1 && digitalRead(digitalSubPin[Train[2]])==1){
     Train[2] = Train[2] + 1;
@@ -1068,7 +1068,7 @@ if(Train[2] > 5 && Train[2] < 15){
     Serial.print("T2S===");
     Serial.println(Train[2]);
   }
-  
+  //
   void Train2Main(){
    if(TrainOutFlag2M==1 && digitalRead(digitalMainPin[Train[2]])==1){
     Train[2] = Train[2] + 1;
