@@ -1055,11 +1055,10 @@ if(Train[2] > 4 && Train[2] < 16 || Train[2]==1){
     Train[2] = Train[2] + 1;
     TrainOutFlag2M = 0;
     TrainOutFlag2S = 0;
-    if(Train[2]==14 ){
-     Train[2]=1;
-     TrainOutFlag2S = 0;
-     //Train2Stop();
-     Serial.println("Train2Stop();"); 
+    if(Train[2]==14 && TrainOutFlag2S ==0){
+    Train2Stop();
+      delay[1];
+      Train[2]=1;
     }
     if(s[1]==1 ){
      Train[2]=2;
