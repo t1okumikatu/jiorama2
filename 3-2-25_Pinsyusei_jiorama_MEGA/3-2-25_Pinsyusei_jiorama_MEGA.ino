@@ -816,30 +816,37 @@ void  Train1Sub_Home(){
     TrainOutFlag1S = 0;
   
    }
-  if(Train[1]==14 && TrainOutFlag1S == 1 ){
+ // if(Train[1]==14 && TrainOutFlag1S == 1 ){
      //Train[1]=1;
-     TrainOutFlag1S = 0;
-     Train1Stop();
-     Serial.println("Train1Stop();"); 
-    }
+  //   TrainOutFlag1S = 0;
+  //   Train1Stop();
+  //   Serial.println("823Train1Stop();"); 
+ //   }
      if(Train[1]==2  ){
       Train1Stop();
+      TrainOutFlag1S = 0;
+      Train1Stop();
+      Serial.println("829Train1Stop();"); 
+     
+    }
+    if(Train[1]==2 && TrainOutFlag1S ==0 && s[3]==0 ){
+      Train1Slow();
+      Serial.println("834Train1Slow();"); 
      TrainOutFlag1S = 0;
-     Train1Stop();
-     Serial.println("[1]2Train1Stop();"); 
-     }
+    }
       
+        
    
     
    if(TrainOutFlag1S ==0  && digitalRead(digitalSubPin[Train[1]])==1){
       TrainOutFlag1S = 0;
      Train1Stop();
-      
+     Serial.println("844Train1Stop();"); 
     }
-    if(TrainOutFlag1S ==1  && digitalRead(digitalSubPin[Train[1]])==1){
+    if(TrainOutFlag1S ==1  && digitalRead(digitalSubPin[Train[1]])==0){
       TrainOutFlag1S = 0;
-     //1
-    Train1Slow();
+      Train1Slow();
+      Serial.println("849Train1Slow();"); 
     } 
     //if(TrainOutFlag1S ==0  && digitalRead(digitalMainPin[Train[1]])==1){
     //  TrainOutFlag1S = 0;
@@ -848,17 +855,11 @@ void  Train1Sub_Home(){
     if(Train[1]==4 ){
       Train1Stop();
       TrainOutFlag1S = 1;
-      Serial.print("Train1Stop();");
+      Serial.println("858Train1Stop();");
+      Train[1]=5;
       } 
-    //if(Train[1]==4 &&  TrainOutFlag1S ==1 ){
-    //  Train1Slow();
-    //  TrainOutFlag1S = 0;
-    //  Serial.print("Train1Stop();");
-    //  Train[1]=5;
-   // } 
-    //TrainOutFlag1S = 1;
-    Serial.print("T1S===");
-    Serial.println(Train[1]);
+      Serial.print("T1S===Train[1]");
+      Serial.println(Train[1]);
   }
 //[22]
   void  Train2Sub_Home(){
@@ -880,17 +881,25 @@ void  Train1Sub_Home(){
       Train2Stop();
      TrainOutFlag2S = 0;
      Train2Stop();
-     Serial.println("[1]2Train2Stop();"); 
+     Serial.println("881Train2Stop();"); 
      }  
+      if(Train[2]==2 && TrainOutFlag2S ==1 && s[3]==0){
+      Train2Slow();
+      Serial.println("885Train2Slow();"); 
+     TrainOutFlag2S = 0;
+      }
+     
      
      if(TrainOutFlag2S ==0  && digitalRead(digitalSubPin[Train[2]])==1){
       TrainOutFlag2S = 0;
       Train2Stop();
+      Serial.println("887Train2Stop();"); 
    }  
     
-     if(TrainOutFlag2S ==1  && digitalRead(digitalSubPin[Train[2]])==1){
+     if(TrainOutFlag2S ==1  && digitalRead(digitalSubPin[Train[2]])==0){
       TrainOutFlag2S = 0;
        Train2Slow();
+       Serial.println("893Train2Slow();"); 
     } 
     //if(TrainOutFlag1S ==0  && digitalRead(digitalMainPin[Train[1]])==1){
     //  TrainOutFlag1S = 0;
@@ -899,7 +908,7 @@ void  Train1Sub_Home(){
     if(Train[2]==4 ){
       Train2Stop();
       TrainOutFlag2S = 1;
-      Serial.print("Train2Stop();");
+      Serial.print("902Train2Stop();");
       Train[2]=5;
     } 
     //TrainOutFlag1S = 1;
@@ -1405,14 +1414,14 @@ void Train1Slow(){
    digitalWrite(39,  HIGH);//Train[1] Slow
    digitalWrite(40,  LOW);
    digitalWrite(41,  LOW); 
-   Serial.println("Train11111Slow");
+  // Serial.println("Train11111Slow");
 }
 void Train2Slow(){
    digitalWrite(38,  LOW);//6
    digitalWrite(39,  HIGH);//Train[2] Slow
    digitalWrite(40,  HIGH);
    digitalWrite(41,  LOW); 
-   Serial.println("Train222222Slow");
+   //Serial.println("Train222222Slow");
 }
 void Train3Slow(){
    digitalWrite(38,  HIGH);//9
@@ -1431,14 +1440,14 @@ void Train1Stop(){
    digitalWrite(39,  LOW);//Train[1] Stop
    digitalWrite(40,  HIGH);
    digitalWrite(41,  LOW); 
-   Serial.println("Train11111Stop");
+  // Serial.println("Train11111Stop");
 }
 void Train2Stop(){
    digitalWrite(38,  LOW);//8
    digitalWrite(39,  LOW);//Train[2] Stop
    digitalWrite(40,  LOW);
    digitalWrite(41,  HIGH); 
-   Serial.println("Train22222Stop");
+   //Serial.println("Train22222Stop");
 }
 void Train123StopF(){
    digitalWrite(38,  LOW);//2
